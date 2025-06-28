@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="mario-jump-images/mario.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Jogo do Mario</title>
+</head>
+
+<body>
+
+  <div class="game-board">
+
+    <div class="score">
+
+      <h3>Pontuação</h3>
+
+      <span id="pontuacao" class="pont">0</span>
+
+    </div>
+
+    <div class="game-over-msg">Game Over</div>
+    <button class="btn-return">Recomeçar</button>
+
+    <img src="mario-jump-images/clouds.png" class="clouds" />
+    <img src="mario-jump-images/mario.gif" class="mario" />
+    <img src="mario-jump-images/pipe.png" class="pipe" />
+
+    
+    <audio id="bg-music" loop preload="auto">
+      <source src="mario-jump-images/Super Mario Bros. Theme Song.mp3" type="audio/mp3" />
+    </audio>
+    <audio id="jump-sound" preload="auto">
+      <source src="mario-jump-images/jump.mp3" type="audio/mp3" />
+    </audio>
+    <audio id="game-over-music" preload="auto">
+      <source src="mario-jump-images/Super Mario Bros - game over song.mp3" type="audio/mp3" />
+    </audio>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
