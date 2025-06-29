@@ -17,6 +17,8 @@
   font-family: 'Press Start 2P', cursive;
   color: #fff;
   z-index: 3000;
+  text-align: center;
+  padding: 20px;
 }
 
 .start-screen h1 {
@@ -41,7 +43,6 @@
 .btn-start:hover {
   background-color: #ffd633;
 }
-
 
 /* Área do jogo */
 .game-board {
@@ -114,7 +115,6 @@
   font-family: 'Press Start 2P', cursive;
 }
 
-
 /* Mensagem de Game Over */
 .game-over-msg {
   position: absolute;
@@ -161,8 +161,7 @@
   to { left: -50px; }
 }
 
-
-/* Animação do salto (desktop e mobile com mesmo tempo e distância) */
+/* Animação do salto */
 @keyframes jump {
   0% {
     bottom: 0;
@@ -170,7 +169,7 @@
   }
   40%, 50%, 60% {
     bottom: 180px;
-    transform: translateX(40px); /* Avanço horizontal maior */
+    transform: translateX(40px);
   }
   100% {
     bottom: 0;
@@ -216,5 +215,139 @@
     font-size: 24px;
     top: 45%;
     padding: 15px;
+  }
+
+  .start-screen h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    text-shadow: 1px 1px 4px #000;
+  }
+
+  .btn-start {
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 6px #fff;
+  }
+
+  .start-screen {
+    padding: 10px;
+  }
+}
+
+/* Responsividade para telas pequenas */
+@media only screen and (max-width: 600px) {
+  .pipe {
+    width: 80px;
+    animation-delay: 2s;
+  }
+
+  .game-board {
+    height: 565px;
+  }
+
+  .score h3,
+  .pont {
+    font-size: 14px;
+  }
+
+  .btn-return {
+    font-size: 12px;
+    padding: 10px 18px;
+    top: 70%;
+  }
+
+  .game-over-msg {
+    font-size: 24px;
+    top: 45%;
+    padding: 15px;
+  }
+
+  .start-screen h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .btn-start {
+    font-size: 14px;
+    padding: 12px 30px;
+  }
+}
+
+/* 📱 Ajustes extras para telas MUITO pequenas (até 350px) */
+/* 📱 Ajustes para telas pequenas (até 400px) */
+@media only screen and (max-width: 400px) {
+  .start-screen {
+    padding: 20px;
+    background-size: cover;
+  }
+
+  .start-screen h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .btn-start {
+    font-size: 13px;
+    padding: 10px 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #fff;
+  }
+
+  .mario {
+    width: 100px;
+  }
+
+  .pipe {
+    width: 60px;
+  }
+
+  .clouds {
+    width: 300px;
+  }
+
+  .coin {
+    width: 25px;
+  }
+
+  .game-board {
+    height: 500px;
+  }
+
+  .score {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .score h3 {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .pont {
+    font-size: 16px;
+  }
+
+  .moedas,
+  .tempo {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  .game-over-msg {
+    font-size: 18px;
+    padding: 10px;
+    max-width: 80%;
+    text-align: center;
+  }
+
+  .btn-return {
+    font-size: 11px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    top: 68%;
   }
 }
