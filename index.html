@@ -4,43 +4,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="mario-jump-images/mario.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
   <title>Jogo do Mario</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="mario-jump-images/mario.png" />
+
+  <!-- Fonte personalizada -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+  <!-- Tela inicial (visível só antes do 1º jogo) -->
+  <div id="start-screen" class="start-screen">
+    <h1>Jogo do Mario</h1>
+    <button id="btn-start" class="btn-start">Começar</button>
+  </div>
+
+
+  <!-- Área principal do jogo -->
   <div class="game-board">
 
+    <!-- Pontuação -->
     <div class="score">
-
       <h3>Pontuação</h3>
-
       <span id="pontuacao" class="pont">0</span>
 
+      <div class="moedas">
+        <span>💰 Moedas:</span> <span id="moedas">0</span>
+      </div>
+
+      <div class="tempo">
+        ⏱️ Tempo: <span id="tempo">0s</span>
+      </div>
     </div>
 
+    <!-- Mensagem de Game Over -->
     <div class="game-over-msg">Game Over</div>
+
+    <!-- Botão para reiniciar o jogo -->
     <button class="btn-return">Recomeçar</button>
 
-    <img src="mario-jump-images/clouds.png" class="clouds" />
-    <img src="mario-jump-images/mario.gif" class="mario" />
-    <img src="mario-jump-images/pipe.png" class="pipe" />
+    <!-- Elementos visuais -->
+    <img src="img/clouds.png" alt="Nuvens" class="clouds" />
+    <img src="img/mario.gif" alt="Mario pulando" class="mario" />
+    <img src="img/pipe.png" alt="Cano obstáculo" class="pipe" />
 
-    
+    <!-- Áudios do jogo -->
     <audio id="bg-music" loop preload="auto">
-      <source src="mario-jump-images/Super Mario Bros. Theme Song.mp3" type="audio/mp3" />
+      <source src="music/Super Mario Bros. Theme Song.mp3" type="audio/mp3" />
+      Seu navegador não suporta áudio.
     </audio>
+
     <audio id="jump-sound" preload="auto">
-      <source src="mario-jump-images/jump.mp3" type="audio/mp3" />
+      <source src="music/Som do pulo com o Mario grande - Super Mario Bros.mp3" type="audio/mp3" />
+      Seu navegador não suporta áudio.
     </audio>
+
     <audio id="game-over-music" preload="auto">
-      <source src="mario-jump-images/Super Mario Bros - game over song.mp3" type="audio/mp3" />
+      <source src="music/Super Mario Bros - game over song.mp3" type="audio/mp3" />
+      Seu navegador não suporta áudio.
     </audio>
+
   </div>
+
+  <!-- Script JavaScript principal -->
   <script src="script.js"></script>
+
 </body>
 
 </html>

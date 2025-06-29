@@ -1,9 +1,49 @@
+/* Reset e padrão */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Tela inicial fullscreen estilo Mario */
+.start-screen {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('mario-jump-images/mario-background.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
+  z-index: 3000;
+}
+
+.start-screen h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 6px #000;
+}
+
+.btn-start {
+  font-size: 20px;
+  padding: 15px 40px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  color: #000;
+  box-shadow: 0 0 10px #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btn-start:hover {
+  background-color: #ffd633;
+}
+
+
+/* Área do jogo */
 .game-board {
   width: 100%;
   height: 575px;
@@ -13,32 +53,38 @@
   background: linear-gradient(#87ceeb, #e0f6);
 }
 
+/* Cano */
 .pipe {
   position: absolute;
   bottom: 0;
   width: 80px;
   right: 0;
+  animation: pipe-animation 1.9s infinite linear;
+  animation-delay: 2s;
 }
 
+/* Mario */
 .mario {
   width: 150px;
   position: absolute;
   bottom: 0;
 }
 
+/* Animação de pulo */
 .jump {
-  animation: jump 500ms ease-out;
+  animation: jump 650ms ease-out;
 }
 
+/* Nuvens */
 .clouds {
   position: absolute;
   width: 550px;
   animation: clouds-animation 20s infinite linear;
 }
 
+/* Pontuação */
 .score {
   position: absolute;
-  background: rgba(255, 255, 255, 0.6);
   top: 35px;
   left: 50%;
   transform: translateX(-50%);
@@ -46,15 +92,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Press Start 2P', sans-serif;
-  color: #000;
   padding: 10px 20px;
   border-radius: 10px;
+  font-family: 'Press Start 2P', sans-serif;
+  color: #000;
 }
 
-.score h3 { font-size: 20px; margin-bottom: 10px; }
-.pont { font-size: 24px; font-weight: bold; }
+.score h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
 
+.pont {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.moedas, .tempo {
+  font-size: 16px;
+  margin-top: 5px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+
+/* Mensagem de Game Over */
 .game-over-msg {
   position: absolute;
   top: 50%;
@@ -71,6 +132,7 @@
   text-align: center;
 }
 
+/* Botão de reiniciar */
 .btn-return {
   position: absolute;
   top: 65%;
@@ -87,31 +149,69 @@
   display: none;
 }
 
-@keyframes jump {
-  0% { bottom: 0; }
-  40%, 50%, 60% { bottom: 180px; }
-  100% { bottom: 0; }
+.coin {
+  position: absolute;
+  width: 40px;
+  transition: left 0.03s linear;
+  z-index: 2;
 }
 
+@keyframes coin-move {
+  from { left: 100%; }
+  to { left: -50px; }
+}
+
+
+/* Animação do salto (desktop e mobile com mesmo tempo e distância) */
+@keyframes jump {
+  0% {
+    bottom: 0;
+    transform: translateX(0);
+  }
+  40%, 50%, 60% {
+    bottom: 180px;
+    transform: translateX(40px); /* Avanço horizontal maior */
+  }
+  100% {
+    bottom: 0;
+    transform: translateX(0);
+  }
+}
+
+/* Animação das nuvens */
 @keyframes clouds-animation {
   from { right: 0; }
   to { right: 100%; }
 }
 
+/* Animação dos obstáculos */
+@keyframes pipe-animation {
+  from { right: -80px; }
+  to { right: 100%; }
+}
+
+/* Responsividade para telas menores */
 @media only screen and (max-width: 600px) {
-  .pipe { width: 80px; }
-  @keyframes jump {
-    0% { bottom: 0; }
-    40%, 50%, 60% { bottom: 240px; }
-    100% { bottom: 0; }
+  .pipe {
+    width: 80px;
+    animation-delay: 2s;
   }
-  .game-board { height: 565px; }
-  .score h3, .pont { font-size: 14px; }
+
+  .game-board {
+    height: 565px;
+  }
+
+  .score h3,
+  .pont {
+    font-size: 14px;
+  }
+
   .btn-return {
     font-size: 12px;
     padding: 10px 18px;
     top: 70%;
   }
+
   .game-over-msg {
     font-size: 24px;
     top: 45%;
